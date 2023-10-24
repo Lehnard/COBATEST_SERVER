@@ -82,9 +82,21 @@ categoric_vars <- c("anulado_sn","usuario_id","centro_id","hivtest_namecbvct",
                     "hivtest_residenttourist", "hivtest_foreignStudent",
                     "hivtest_asylumSeekingMigrant","hivtest_undocumentedMigrant",
                     "hivtest_foreignWorker","hivtest_refugee",
-                    "hivtest_nationalityHolders","hivtest_resident") 
+                    "hivtest_nationalityHolders","hivtest_resident","hivtest_accessHealthCare", 
+                    "hivtest_reasons01", "hivtest_reason0101","hivtest_reason0102",
+                    "hivtest_reason0103","hivtest_reason0104","hivtest_reason0105",
+                    "hivtest_reason0106","hivtest_reason0107","hivtest_reason0108", 
+                    "hivtest_reasons02", "hivtest_reason0201","hivtest_reason0202",
+                    "hivtest_reason0203","hivtest_reason0204","hivtest_reason0205",
+                    "hivtest_reason0206","hivtest_reason0207","hivtest_reasons03",
+                    "hivtest_reasons04","hivtest_reasons05", "hivtest_reasonsb01",
+                    "hivtest_reasonsb02","hivtest_reasonsb03","hivtest_reasonsb04",
+                    "hivtest_reasonsb05")
+
 id_vars <- c("cobatest_id" )
-text_vars <- c("hivtest_citycbvct","hivtest_whichOtherForeign","hivtest_municipality")
+text_vars <- c("hivtest_citycbvct","hivtest_whichOtherForeign","hivtest_municipality", 
+               "hivtest_whichOtherHCare","hivtest_reason01text","hivtest_reason02text", 
+               "hivtest_textothers","hivtest_reasonsbtext")
 date_vars <- c()
 date_vars <- c("dtcrea", "hivtest_data1", "hivtest_data3")
 
