@@ -15,6 +15,7 @@ cat("\014")
 library(data.table)
 library(odbc)
 library(DBI)
+library(openxlsx)
 #sort(unique(odbcListDrivers()[[1]]))
 
 
@@ -57,13 +58,32 @@ con <- dbConnect(odbc(),
 cobatest <- "cobatest"
 cobatest <- dbReadTable(con, cobatest)
 cobatest <- setDT(cobatest)
-
+# fwrite(cobatest, "out/cobatest_20231031.csv")
+# write.xlsx(cobatest, "out/cobatest_20231102.xlsx")
 
 ## cobatest_export   ####
 # --------------------- #
 cobatest_export <- "export_cobatest"
 cobatest_export <- dbReadTable(con, cobatest_export)
 cobatest_export <- setDT(cobatest_export)
+# fwrite(cobatest_export, "out/cobatest_export_20231031.csv")
+# write.xlsx(cobatest_export, "out/cobatest_export_20231102.xlsx")
+
+
+## hg_centros        ####
+# --------------------- #
+hg_centro <- "hg_centro"
+hg_centro <- dbReadTable(con, hg_centro)
+hg_centro <- setDT(hg_centro)
+# fwrite(hg_centro, "out/hg_centro.csv")
+# write.xlsx(hg_centro, "out/cobatest_export_20231102.xlsx")
+
+
+## ext_log_entries        ####
+# -------------------------- #
+ext_log_entries <- "ext_log_entries"
+ext_log_entries <- dbReadTable(con, ext_log_entries)
+ext_log_entries <- setDT(ext_log_entries)
 
 
 # _______________________________________________________________________ ####
@@ -91,7 +111,7 @@ categoric_vars <- c("anulado_sn","usuario_id","centro_id","hivtest_namecbvct",
                     "hivtest_reason0206","hivtest_reason0207","hivtest_reasons03",
                     "hivtest_reasons04","hivtest_reasons05", "hivtest_reasonsb01",
                     "hivtest_reasonsb02","hivtest_reasonsb03","hivtest_reasonsb04",
-                    "hivtest_reasonsb05")
+                    "hivtest_reasonsb05", "hivtest_yndk01")
 
 id_vars <- c("cobatest_id" )
 text_vars <- c("hivtest_citycbvct","hivtest_whichOtherForeign","hivtest_municipality", 
@@ -483,7 +503,8 @@ cobatest[, .N, evitsesso][order(-N)]
 # COBATEST EXPORT                                                         ####
 # -------------------------------------------------------------------------- #
 
-
+## Variables. 
+cat(paste(colnames(cobatest_export), collapse= '\n'))
 
 
 
