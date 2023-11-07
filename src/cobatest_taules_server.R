@@ -18,6 +18,8 @@ library(DBI)
 library(openxlsx)
 #sort(unique(odbcListDrivers()[[1]]))
 
+TODAY <- format(Sys.Date(), '%Y%m%d') 
+
 
 # -------------------------------------------------------------------------- #
 # SET CONNECTION                                                          ####
@@ -58,16 +60,16 @@ con <- dbConnect(odbc(),
 cobatest <- "cobatest"
 cobatest <- dbReadTable(con, cobatest)
 cobatest <- setDT(cobatest)
-# fwrite(cobatest, "out/cobatest_20231031.csv")
-# write.xlsx(cobatest, "out/cobatest_20231102.xlsx")
+# fwrite(cobatest, paste0("out/cobatest_", TODAY, ".csv"))
+# write.xlsx(cobatest, paste0("out/cobatest_", TODAY,".xlsx"))
 
 ## cobatest_export   ####
 # --------------------- #
 cobatest_export <- "export_cobatest"
 cobatest_export <- dbReadTable(con, cobatest_export)
 cobatest_export <- setDT(cobatest_export)
-# fwrite(cobatest_export, "out/cobatest_export_20231031.csv")
-# write.xlsx(cobatest_export, "out/cobatest_export_20231102.xlsx")
+# fwrite(cobatest_export, paste0("out/cobatest_export", TODAY, ".csv"))
+# write.xlsx(cobatest_export, paste0("out/cobatest_export", TODAY,".xlsx"))
 
 
 ## hg_centros        ####
@@ -75,8 +77,6 @@ cobatest_export <- setDT(cobatest_export)
 hg_centro <- "hg_centro"
 hg_centro <- dbReadTable(con, hg_centro)
 hg_centro <- setDT(hg_centro)
-# fwrite(hg_centro, "out/hg_centro.csv")
-# write.xlsx(hg_centro, "out/cobatest_export_20231102.xlsx")
 
 
 ## ext_log_entries        ####
