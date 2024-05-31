@@ -29,8 +29,11 @@ TODAY <- format(Sys.Date(), '%Y%m%d')
 driver    <- "SQL Server"
 server    <- "icosrvceeiscat01.ico.scs.local"  
 database  <- "COBATEST"        
-uid       <- "jaceiton"      ## User ID
+# uid       <- "jaceiton"      ## User ID
 # cobatest    "GvqmXGhQqC*+"
+
+uid       <- "malarcon"      ## User ID
+# cobatest    "trf45rEDR6785Frtd"
 
 con <- dbConnect(odbc(),
                  Driver = driver,
